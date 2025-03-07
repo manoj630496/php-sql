@@ -12,7 +12,7 @@ pipeline{
             agent any
             steps{
                 script{
-                sshagent(['slave02']) {
+                sshagent(['slave1']) {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                 echo "Building the php image"
                 sh "scp -o StrictHostKeyChecking=no -r BuildConfig ${BUILD_SERVER_IP}:/home/ec2-user"
